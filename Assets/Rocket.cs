@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] float rcsTrust = 5f;
-    [SerializeField] float mainTrust = 20f;
+    [SerializeField] float mainThrust = 20;
+    [SerializeField] float rcsThrust = 100f;
+
     Rigidbody rigidBody;
     AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +28,12 @@ public class Rocket : MonoBehaviour
 
     private void Thrust()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            print("Thrusting");
-            rigidBody.AddRelativeForce(Vector3.up * mainTrust);
+        if (Input.GetKey(KeyCode.Space)){
+            rigidBody.AddRelativeForce(Vector3.up*mainThrust);
             if (!audioSource.isPlaying)
+            {
                 audioSource.Play();
+            }
         }
         else
         {
@@ -41,17 +43,16 @@ public class Rocket : MonoBehaviour
 
     private void Rotate()
     {
-        rigidBody.freezeRotation = true;
+        rigidBody.freezeRotation = true; // take manual control of the rotation
         if (Input.GetKey(KeyCode.A))
         {
-            print("Rotating Left");
-            transform.Rotate(Vector3.forward * rcsTrust);
+            transform.Rotate(Vector3.forward * rcsThrust * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if(Input.GetKey(KeyCode.D))
         {
-            print("Rotating Right");
-            transform.Rotate(-Vector3.forward * rcsTrust);
+            transform.Rotate(-Vector3.forward * rcsThrust * Time.deltaTime);
+
         }
-        rigidBody.freezeRotation = false;
+        rigidBody.freezeRotation = false; // lets physics control of the rotation
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 20;
+    [SerializeField] float mainThrust = 20f;
     [SerializeField] float rcsThrust = 100f;
 
     Rigidbody rigidBody;
@@ -26,6 +26,24 @@ public class Rocket : MonoBehaviour
         Rotate();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("Ok");
+                break;
+            case "Fuel":
+                print("Fuel");
+                break;
+            case "Finish":
+                print("Finish");
+                break;
+            default:
+                print("Dead");
+                break;
+        }
+    }
     private void Thrust()
     {
         if (Input.GetKey(KeyCode.Space)){

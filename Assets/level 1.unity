@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.022472246, y: -0, z: -0, w: 0.9997475}
-  m_LocalPosition: {x: 0.04, y: 13.78, z: -37.54}
+  m_LocalPosition: {x: 0.04, y: 13.4, z: -29.06}
   m_LocalScale: {x: 1, y: 1, z: 1.0162}
   m_Children: []
   m_Father: {fileID: 0}
@@ -270,6 +270,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 210777372455380352, guid: e96dace0ce694af4597c1eebca2b4a50,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a5c31baac9eafc4690ffa56e529c9e8, type: 2}
     - target: {fileID: 210777372455380354, guid: e96dace0ce694af4597c1eebca2b4a50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -343,7 +348,12 @@ PrefabInstance:
     - target: {fileID: 210777372455380366, guid: e96dace0ce694af4597c1eebca2b4a50,
         type: 3}
       propertyPath: m_Name
-      value: Lounchpad (1)
+      value: Fuelpad
+      objectReference: {fileID: 0}
+    - target: {fileID: 210777372455380366, guid: e96dace0ce694af4597c1eebca2b4a50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96dace0ce694af4597c1eebca2b4a50, type: 3}
@@ -354,6 +364,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 210777372455380352, guid: e96dace0ce694af4597c1eebca2b4a50,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a5c31baac9eafc4690ffa56e529c9e8, type: 2}
     - target: {fileID: 210777372455380354, guid: e96dace0ce694af4597c1eebca2b4a50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,7 +442,12 @@ PrefabInstance:
     - target: {fileID: 210777372455380366, guid: e96dace0ce694af4597c1eebca2b4a50,
         type: 3}
       propertyPath: m_Name
-      value: Lounchpad (2)
+      value: Finishpad
+      objectReference: {fileID: 0}
+    - target: {fileID: 210777372455380366, guid: e96dace0ce694af4597c1eebca2b4a50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96dace0ce694af4597c1eebca2b4a50, type: 3}
@@ -635,6 +655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lounchpad
+      objectReference: {fileID: 0}
+    - target: {fileID: 210777372455380366, guid: e96dace0ce694af4597c1eebca2b4a50,
+        type: 3}
+      propertyPath: m_TagString
+      value: Friendly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96dace0ce694af4597c1eebca2b4a50, type: 3}

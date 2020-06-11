@@ -4,6 +4,10 @@ public class Rocket : MonoBehaviour
 {
     [SerializeField] float mainThrust = 20f;
     [SerializeField] float rcsThrust = 100f;
+    [SerializeField] ParticleSystem engine1Particles;
+    [SerializeField] ParticleSystem engine2Particles;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem explosionParticles;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -31,13 +35,23 @@ public class Rocket : MonoBehaviour
                 break;
             case "Finish":
                 print("Hit Finish");
-                SceneManager.LoadScene(1);
+                successParticles.Play();
+                Invoke("LoadNextLevel", 1f);
                 break;
             default:
                 print("Dead");
-                SceneManager.LoadScene(0);
+                explosionParticles.Play();
+                Invoke("LoadFirstLevel", 1f);
                 break;
         }
+    }
+    private void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(1);
     }
     private void Thrust()
     {
@@ -47,10 +61,15 @@ public class Rocket : MonoBehaviour
             {
                 audioSource.Play();
             }
+            engine1Particles.Play();
+            engine2Particles.Play();
         }
         else
         {
             audioSource.Stop();
+            engine1Particles.Stop();
+            engine2Particles.Stop();
+
         }
     }
 

@@ -565,7 +565,6 @@ GameObject:
   - component: {fileID: 5047290487650513144}
   - component: {fileID: 7290644620449209739}
   - component: {fileID: 4319636366883640277}
-  - component: {fileID: 3405940706359072224}
   m_Layer: 0
   m_Name: Ship Body
   m_TagString: Untagged
@@ -646,24 +645,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3405940706359072224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969171420079614340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4ac1aa7d36add4ba41077f7671d1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainThrust: 100
-  rcsThrust: 100
-  engine1Particles: {fileID: 0}
-  engine2Particles: {fileID: 0}
-  successParticles: {fileID: 0}
-  explosionParticles: {fileID: 0}
 --- !u!1 &9040925068366112798
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,9 +654,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5472921553985380613}
-  - component: {fileID: 6331813317212814935}
   - component: {fileID: 8278312206414321351}
   - component: {fileID: 5484960210016734610}
+  - component: {fileID: 2603722442094049117}
   m_Layer: 0
   m_Name: Rocket Ship
   m_TagString: Untagged
@@ -706,24 +687,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.065000005, y: -17.742, z: 2.6650002}
---- !u!114 &6331813317212814935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9040925068366112798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4ac1aa7d36add4ba41077f7671d1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainThrust: 18
-  rcsThrust: 80
-  engine1Particles: {fileID: 3720112582792997866}
-  engine2Particles: {fileID: 3720112582707189549}
-  successParticles: {fileID: 1102705464045683787}
-  explosionParticles: {fileID: 7740196593799640115}
 --- !u!82 &8278312206414321351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -734,7 +697,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a38970742799fb04294c6ccbe403b1ec, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -744,12 +707,12 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.7955227
-  MaxDistance: 11947.078
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 1
+  BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -829,13 +792,34 @@ Rigidbody:
   m_GameObject: {fileID: 9040925068366112798}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.3
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!114 &2603722442094049117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9040925068366112798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4ac1aa7d36add4ba41077f7671d1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainThrust: 20
+  rcsThrust: 100
+  engine1Particles: {fileID: 3720112582792997866}
+  engine2Particles: {fileID: 3720112582707189549}
+  successParticles: {fileID: 1102705464045683787}
+  explosionParticles: {fileID: 7740196593799640115}
+  mainEngineAudio: {fileID: 8300000, guid: 9d063b3bf5fc88d4c88eb9a8db50a70a, type: 3}
+  successAudio: {fileID: 8300000, guid: 3b9d07a1e5c7bb8488a2d0808965fc8b, type: 3}
+  deathAudio: {fileID: 8300000, guid: 2d6533780a971ff43a7217f5d0fb6ba7, type: 3}
 --- !u!1001 &976213630806611797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -849,15 +833,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4100699973242056, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
       propertyPath: m_LocalRotation.x

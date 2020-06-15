@@ -2,8 +2,8 @@
 using UnityEngine.SceneManagement;
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] float mainThrust = 20f;
-    [SerializeField] float rcsThrust = 100f;
+    [SerializeField] float mainThrust;
+    [SerializeField] float rcsThrust;
     [SerializeField] ParticleSystem engine1Particles;
     [SerializeField] ParticleSystem engine2Particles;
     [SerializeField] ParticleSystem successParticles;
@@ -17,7 +17,7 @@ public class Rocket : MonoBehaviour
     AudioSource audioSource;
 
     enum State { Alive,Dying,Transcending}
-    State state = State.Alive;
+    [SerializeField]  State state = State.Alive;
     
     // Start is called before the first frame update
     void Start()
@@ -82,10 +82,9 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            audioSource.Stop();
-            engine1Particles.Stop();
-            engine2Particles.Stop();
-
+           audioSource.Stop();
+           engine1Particles.Stop();
+           engine2Particles.Stop();
         }
     }
 
@@ -95,10 +94,11 @@ public class Rocket : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(mainEngineAudio);
-
+            engine1Particles.Play();
+            engine2Particles.Play();
         }
-        engine1Particles.Play();
-        engine2Particles.Play();
+
+
     }
     private void RespondToTheRotating()
     {

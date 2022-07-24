@@ -2,4 +2,4 @@
 
 # What is this?
 
-An implementation of a simple bank system in java.
+An implementation of a simple 3d rocket booster game in unity 3d.

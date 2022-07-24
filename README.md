@@ -1,4 +1,4 @@
-![alt text](https://github.com/alaeimo/Broject_Boost/blob/master/demo.jpg)
+![alt text](https://github.com/alaeimo/Broject_Boost/blob/master/demo.png)
 
 # What is this?
 
